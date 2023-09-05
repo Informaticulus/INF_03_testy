@@ -1,0 +1,8 @@
+1
+SELECT id, dataWyjazdu, cel, cena FROM wycieczki WHERE dostepna <>0;
+2
+SELECT nazwaPliku, podpis FROM zdjecia ORDER by podpis DESC;
+3
+SELECT cel, cena, podpis FROM wycieczki INNER JOIN zdjecia WHERE wycieczki.zdjecia_id=zdjecia.id and cena >1200;
+4
+ALTER TABLE wycieczki ADD liczbaDni tinyint AFTER dataWyjazdu;
