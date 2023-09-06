@@ -24,12 +24,12 @@ if (mysqli_connect_errno()) {
         <h3>Wycieczki, na które są wolne miejsca</h3>
         <ul>
             <?php
-                $query="SELECT id, dataWyjazdu, cel, cena FROM wycieczki WHERE dostepna <>0;";
-                if ($result = mysqli_query($con, $query)) {
-                    while ($row = mysqli_fetch_row($result)) {
-                        echo "<li>".$row[0]." dnia ".$row[1]." jedziemy do ".$row[2].", cena: ".$row[3]."</li>";
-                    }
+            $query = "SELECT id, dataWyjazdu, cel, cena FROM wycieczki WHERE dostepna <>0;";
+            if ($result = mysqli_query($con, $query)) {
+                while ($row = mysqli_fetch_row($result)) {
+                    echo "<li>" . $row[0] . " dnia " . $row[1] . " jedziemy do " . $row[2] . ", cena: " . $row[3] . "</li>";
                 }
+            }
             ?>
         </ul>
     </section>
@@ -53,7 +53,12 @@ if (mysqli_connect_errno()) {
     <section id="srodkowy">
         <h2>Nasze zdjęcia</h2>
         <?php
-
+        $query = "SELECT nazwaPliku, podpis FROM zdjecia ORDER by podpis DESC;";
+        if ($result = mysqli_query($con, $query)) {
+            while ($row = mysqli_fetch_row($result)) {
+                echo "<img src=../Zad4/".$row[0]." alt=\"".$row[1]."\"".">";
+            }
+        }
         ?>
     </section>
     <section id="prawy">
