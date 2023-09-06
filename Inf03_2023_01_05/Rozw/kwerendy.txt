@@ -1,0 +1,2 @@
+1
+SELECT dataZadania, wpis FROM zadania WHERE miesiac="sierpien";
