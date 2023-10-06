@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacja paliw</title>
+    <link rel="stylesheet" href="styl2.css">
+</head>
+<body>
+<section id="baner">
+    <h1>Całodobowa stacja paliw</h1>
+</section>
+<section id="menu">
+    <a href="stacja.html"><img src="home.png" alt=""></a>
+    <a href="obliczenia.html"><img src="znak.png" alt=""></a>
+    <a href="kwerendy.txt">Pobierz dokumenty</a>
+</section>
+<section id="lewy">
+    <h2>Orientacyjny koszt paliwa</h2>
+    <label for="paliwo">Rodzaj paliwa (1-benzyna, 2-olej napędowy)</label><br>
+    <input type="number" name="paliwo" id="paliwo"><br>
+    <label for="litry">Ile litrów?</label><br>
+    <input type="number" name="litry" id="litry"><br>
+    <button onclick="oblicz();">OBLICZ</button><br>
+    <span id="wynik"></span>
+</section>
+<section id="prawy">
+    <img src="samochod.png" alt="samochod">
+</section>
+<section id="stopka">
+    <p>
+        Stronę opracował: 00000000000
+    </p>
+</section>    
+</body>
+<script>
+    function oblicz(){
+        paliwo=parseInt(document.getElementById("paliwo").value);
+        litry=parseInt(document.getElementById("litry").value);
+        switch(paliwo){
+            case 1:{
+                console.log(litry);
+                calosc=(litry*4).toFixed(2);
+                break;
+            }
+            case 2:{
+                calosc=(litry*3.5).toFixed(2);
+                break;
+            }
+            default:{
+                calosc=0;
+                break;
+            }
+        }
+        document.getElementById("wynik").textContent=`koszt paliwa: ${calosc} zł`;
+    }
+</script>
+</html>
